@@ -1,9 +1,4 @@
-For integrating **AWS** into your project, you can take advantage of the **AWS Free Tier** to access cloud computing resources for free within certain usage limits. Here's how you can incorporate AWS into the project setup and README.
-
-### Updated **README.md** with AWS Integration
-
 # CloudSecurity-AnomalyDetection
-
 This repository contains the code and resources for a project focused on **enhancing data privacy and security in cloud computing** by integrating advanced cryptographic techniques (AES and homomorphic encryption) with **machine learning models for real-time anomaly detection**. The project uses the **BETH Dataset**, a modern cybersecurity dataset, to develop robust models capable of detecting anomalies and potential security threats in cloud environments.
 
 ## Project Overview
