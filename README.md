@@ -1,3 +1,7 @@
+For integrating **AWS** into your project, you can take advantage of the **AWS Free Tier** to access cloud computing resources for free within certain usage limits. Here's how you can incorporate AWS into the project setup and README.
+
+### Updated **README.md** with AWS Integration
+
 # CloudSecurity-AnomalyDetection
 
 This repository contains the code and resources for a project focused on **enhancing data privacy and security in cloud computing** by integrating advanced cryptographic techniques (AES and homomorphic encryption) with **machine learning models for real-time anomaly detection**. The project uses the **BETH Dataset**, a modern cybersecurity dataset, to develop robust models capable of detecting anomalies and potential security threats in cloud environments.
@@ -10,7 +14,7 @@ The primary goal of this project is to improve data privacy and security in clou
 - **Homomorphic encryption** for enabling secure computations on encrypted data without needing to decrypt it.
 - **Machine Learning Models** (such as SVMs and Neural Networks) to perform **real-time anomaly detection** on encrypted data.
 
-The project will use **HPC resources**, cloud services (e.g., Google Cloud, AWS Free Tier), and Python-based frameworks for implementation.
+This project utilizes **AWS Free Tier** for cloud computing services, specifically leveraging **EC2 instances** for running machine learning training and **S3** for storing datasets.
 
 ## Key Features
 
@@ -48,7 +52,7 @@ To set up the project on your local machine, follow these steps:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/CloudSecurity-AnomalyDetection.git
+   git clone https://github.com/tonylloyd2/CloudSecurity-AnomalyDetection.git
    cd CloudSecurity-AnomalyDetection
    ```
 
@@ -67,25 +71,38 @@ To set up the project on your local machine, follow these steps:
 4. **Download the Dataset**:
    Download the BETH dataset from [BETH Dataset Repository](https://github.com/jinxmirror13/BETH_Dataset_Analysis) and place it in the `data/raw/` directory.
 
-5. **Run Preprocessing**:
+5. **AWS Setup**:
+   You can use **AWS Free Tier** for running the machine learning models and storing the dataset.
+   - **EC2 Instances**: Set up an EC2 instance (t2.micro, which is free under the AWS Free Tier) to run your model training.
+   - **S3 Storage**: Store large datasets in an S3 bucket for easy access during model training.
+   
+   For AWS configuration:
+   - Create an EC2 instance using the **AWS Management Console**.
+   - Set up an **S3 bucket** for dataset storage and configure access.
+   - Ensure you have the **AWS CLI** installed to upload/download data from S3:
+     ```bash
+     aws s3 cp data/raw/ s3://your-bucket-name/raw/ --recursive
+     ```
+
+6. **Run Preprocessing**:
    Clean and preprocess the dataset using the following script:
    ```bash
    python src/preprocessing/clean_data.py
    ```
 
-6. **Train the Model**:
+7. **Train the Model**:
    After preprocessing, train the machine learning model using:
    ```bash
    python src/models/train_model.py
    ```
 
-7. **Encrypt Data**:
+8. **Encrypt Data**:
    Apply AES or homomorphic encryption to the processed data:
    ```bash
    python src/encryption/encrypt_data.py
    ```
 
-8. **Anomaly Detection**:
+9. **Anomaly Detection**:
    Run the anomaly detection model on encrypted data:
    ```bash
    python src/models/anomaly_detection.py
@@ -94,6 +111,8 @@ To set up the project on your local machine, follow these steps:
 ## Dependencies
 
 - Python 3.8+
+- AWS CLI
+- Boto3 (for AWS S3 integration)
 - NumPy
 - Pandas
 - Scikit-learn
